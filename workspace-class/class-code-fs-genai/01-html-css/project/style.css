@@ -1,0 +1,89 @@
+/* הגדרות כלליות */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #0b0e14; /* צבע הרקע הכהה מהתמונה */
+    color: white;
+    direction: ltr; /* הממשק בתמונה הוא משמאל לימין */
+}
+
+/* קונטיינר ראשי */
+.dashboard-container {
+    display: flex;
+    height: 100vh; /* גובה כל המסך */
+}
+
+/* עיצוב תפריט הצד */
+.sidebar {
+    width: 260px;
+    background-color: #12161f; /* צבע סיידבר כהה יותר */
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #232936;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.logo-icon {
+    background-color: #3b82f6;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.nav-links ul {
+    list-style: none;
+}
+
+.nav-links li {
+    padding: 12px 0;
+}
+
+.nav-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links li.active a {
+    color: #3b82f6; /* צבע כחול לקישור פעיל */
+    font-weight: bold;
+}
+
+/* עיצוב התוכן המרכזי */
+.main-content-wrapper {
+    flex-grow: 1; /* לוקח את כל שאר הרוחב */
+    padding: 30px 40px;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.btn-deploy {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-deploy:hover {
+    background-color: #2563eb;
+}
