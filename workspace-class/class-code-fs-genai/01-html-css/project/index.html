@@ -9,22 +9,26 @@
 </head>
 <body>
     
-    <input type="radio" name="trend-select" id="trend-all" class="filter-radio" checked>
-    <input type="radio" name="trend-select" id="trend-blue" class="filter-radio">
-    <input type="radio" name="trend-select" id="trend-purple" class="filter-radio">
-    <input type="radio" name="trend-select" id="trend-green" class="filter-radio">
-    <input type="radio" name="trend-select" id="trend-orange" class="filter-radio">
+    <input type="radio" name="main-nav" id="nav-home" class="hidden-hack" checked>
+    <input type="radio" name="main-nav" id="nav-agents" class="hidden-hack">
+    <input type="radio" name="main-nav" id="nav-executions" class="hidden-hack">
+    <input type="radio" name="main-nav" id="nav-analytics" class="hidden-hack">
+    <input type="radio" name="main-nav" id="nav-settings" class="hidden-hack">
 
-    <input type="checkbox" id="modal-agents-grid" class="modal-toggle">
-    <input type="checkbox" id="modal-settings-pro" class="modal-toggle">
-    <input type="checkbox" id="deploy-modal-toggle" class="modal-toggle">
+    <input type="radio" name="trend-select" id="trend-all" class="hidden-hack" checked>
+    <input type="radio" name="trend-select" id="trend-blue" class="hidden-hack">
+    <input type="radio" name="trend-select" id="trend-purple" class="hidden-hack">
+    <input type="radio" name="trend-select" id="trend-green" class="hidden-hack">
+    <input type="radio" name="trend-select" id="trend-orange" class="hidden-hack">
 
-    <input type="checkbox" id="edit-row-1" class="modal-toggle"> <input type="checkbox" id="delete-row-1" class="modal-toggle">
-    <input type="checkbox" id="edit-row-2" class="modal-toggle"> <input type="checkbox" id="delete-row-2" class="modal-toggle">
-    <input type="checkbox" id="edit-row-3" class="modal-toggle"> <input type="checkbox" id="delete-row-3" class="modal-toggle">
-    <input type="checkbox" id="edit-row-4" class="modal-toggle"> <input type="checkbox" id="delete-row-4" class="modal-toggle">
-    <input type="checkbox" id="edit-row-5" class="modal-toggle"> <input type="checkbox" id="delete-row-5" class="modal-toggle">
-    <input type="checkbox" id="edit-row-6" class="modal-toggle"> <input type="checkbox" id="delete-row-6" class="modal-toggle">
+    <input type="checkbox" id="modal-deploy" class="hidden-hack">
+    
+    <input type="checkbox" id="edit-1" class="hidden-hack"> <input type="checkbox" id="del-1" class="hidden-hack">
+    <input type="checkbox" id="edit-2" class="hidden-hack"> <input type="checkbox" id="del-2" class="hidden-hack">
+    <input type="checkbox" id="edit-3" class="hidden-hack"> <input type="checkbox" id="del-3" class="hidden-hack">
+    <input type="checkbox" id="edit-4" class="hidden-hack"> <input type="checkbox" id="del-4" class="hidden-hack">
+    <input type="checkbox" id="edit-5" class="hidden-hack"> <input type="checkbox" id="del-5" class="hidden-hack">
+    <input type="checkbox" id="edit-6" class="hidden-hack"> <input type="checkbox" id="del-6" class="hidden-hack">
 
     <div class="dashboard-container">
         
@@ -32,7 +36,10 @@
             <div class="sidebar-top">
                 <div class="sidebar-header">
                     <div class="ai-logo-box">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10H12V2Z"/><path d="M12 12L2.1 12.1"/><path d="M12 12v10"/><path d="M12 12l8.46 5.02"/><path d="M12 12l4.77-8.89"/><path d="M12 12L5.15 4.34"/></svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2a10 10 0 1 0 10 10H12V2Z"/>
+                            <path d="M12 12L2.1 12.1"/><path d="M12 12v10"/><path d="M12 12l8.46 5.02"/><path d="M12 12l4.77-8.89"/><path d="M12 12L5.15 4.34"/>
+                        </svg>
                     </div>
                     <div class="brand-text">
                         <span class="main-brand">AI AGENTS</span>
@@ -42,18 +49,18 @@
                 
                 <nav class="nav-links">
                     <ul>
-                        <li><a href="#" class="nav-item active"><span class="icon">🏠</span> Home</a></li>
-                        <li><label for="modal-agents-grid" class="nav-item"><span class="icon">🤖</span> Agents</label></li>
-                        <li><label class="nav-item"><span class="icon">⚡</span> Executions</label></li>
-                        <li><label class="nav-item"><span class="icon">📊</span> Analytics</label></li>
-                        <li><label for="modal-settings-pro" class="nav-item"><span class="icon">⚙️</span> Settings</label></li>
+                        <li><label for="nav-home" class="nav-item"><span class="icon">🏠</span> Home</label></li>
+                        <li><label for="nav-agents" class="nav-item"><span class="icon">🤖</span> Agents</label></li>
+                        <li><label for="nav-executions" class="nav-item"><span class="icon">⚡</span> Executions</label></li>
+                        <li><label for="nav-analytics" class="nav-item"><span class="icon">📊</span> Analytics</label></li>
+                        <li><label for="nav-settings" class="nav-item"><span class="icon">⚙️</span> Settings</label></li>
                     </ul>
                 </nav>
             </div>
             
             <div class="user-profile-sidebar">
                 <div class="avatar-frame">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80" alt="Alex">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="Alex Chen">
                 </div>
                 <div class="user-meta">
                     <p class="u-name">Alex Chen</p>
@@ -65,99 +72,75 @@
         <div class="main-wrapper">
             
             <header class="utility-bar">
-                <div class="search-pill">
+                <div class="search-interactive">
                     <span class="search-icon">🔍</span>
-                    <input type="text" placeholder="Search system...">
+                    <input type="text" placeholder="Search system commands...">
+                    <div class="search-dropdown">
+                        <p>Recent Searches</p>
+                        <a href="#">Agent CR-7 Logs</a>
+                        <a href="#">System Analytics Setup</a>
+                        <a href="#">Failed Tasks Report</a>
+                    </div>
                 </div>
+                
                 <div class="utility-actions">
-                    <div class="notification-bell">🔔</div>
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80" class="me-avatar-mini">
+                    <div class="notification-bell" data-tooltip="3 New Alerts">🔔</div>
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" class="me-avatar-mini" data-tooltip="Profile Options">
                 </div>
             </header>
 
-            <main class="dashboard-content">
+            <main class="bento-grid">
                 
-                <section class="bento-layout-grid">
-                    
-                    <div class="bento-card stat-box">
-                        <div class="s-unit">
-                            <span class="s-label">Active Agents</span>
-                            <span class="s-number">24</span>
-                        </div>
-                        <div class="s-unit">
-                            <span class="s-label">Total Executions</span>
-                            <span class="s-number">12.5k</span>
-                        </div>
-                    </div>
+                <div class="bento-card box-active hover-glow">
+                    <span class="s-label">Active Agents</span>
+                    <span class="s-number">24</span>
+                </div>
 
-                    <div class="bento-card profile-box">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80" class="me-avatar-med">
-                        <h3>Alex Chen</h3>
-                        <p>SysAdmin</p>
-                        <button class="btn-gray-outline">Edit Profile</button>
-                    </div>
+                <div class="bento-card box-total hover-glow">
+                    <span class="s-label">Total Executions</span>
+                    <span class="s-number">12.5k</span>
+                </div>
 
-                    <div class="bento-card chart-box">
-                        <div class="chart-header">
-                            <div class="chart-titles">
-                                <h4>Performance Trends</h4>
-                                <span class="trend-perc">88% Progress</span>
-                            </div>
-                            <div class="chart-legend">
-                                <label for="trend-all" class="l-btn">All Progress</label>
-                                <label for="trend-blue" class="dot-filt blue"></label>
-                                <label for="trend-purple" class="dot-filt purple"></label>
-                                <label for="trend-green" class="dot-filt green"></label>
-                                <label for="trend-orange" class="dot-filt orange"></label>
-                            </div>
+                <div class="bento-card box-profile hover-glow">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" class="me-avatar-med">
+                    <h3>Alex Chen</h3>
+                    <p>System Administrator</p>
+                    <button class="btn-gray-outline">View Profile</button>
+                </div>
+
+                <div class="bento-card box-perf hover-glow">
+                    <div class="chart-header">
+                        <div class="chart-titles">
+                            <h4>Performance Trends</h4>
+                            <span class="trend-perc">88% Progress</span>
                         </div>
-
-                        <div class="chart-container">
-                            <div class="y-axis"><span>100</span><span>80</span><span>60</span><span>40</span><span>20</span><span>0</span></div>
-                            <div class="svg-chart-wrapper">
-                                <div class="chart-grid"><span></span><span></span><span></span><span></span><span></span></div>
-                                <svg viewBox="0 0 500 150" class="curved-svg">
-                                    <path class="line l-blue" d="M 0 120 C 50 120, 50 80, 100 80 S 150 100, 200 100 S 250 40, 300 40 S 350 70, 400 70 S 450 20, 500 20" />
-                                    <path class="line l-purple" d="M 0 140 C 50 140, 50 110, 100 110 S 150 60, 200 60 S 250 90, 300 90 S 350 30, 400 30 S 450 50, 500 50" />
-                                    <path class="line l-green" d="M 0 100 C 50 100, 50 130, 100 130 S 150 80, 200 80 S 250 110, 300 110 S 350 50, 400 50 S 450 40, 500 40" />
-                                    <path class="line l-orange" d="M 0 80 C 50 80, 50 60, 100 60 S 150 40, 200 40 S 250 20, 300 20 S 350 40, 400 40 S 450 10, 500 10" />
-                                </svg>
-                                <div class="x-axis"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
-                            </div>
+                        <div class="chart-legend">
+                            <label for="trend-all" class="l-btn">All</label>
+                            <label for="trend-blue" class="dot-filt blue"></label>
+                            <label for="trend-purple" class="dot-filt purple"></label>
+                            <label for="trend-green" class="dot-filt green"></label>
+                            <label for="trend-orange" class="dot-filt orange"></label>
                         </div>
                     </div>
 
-                    <div class="section-sub-header">
-                        <h2>Recent Agents</h2>
+                    <div class="chart-container">
+                        <div class="y-axis"><span>100</span><span>80</span><span>60</span><span>40</span><span>20</span><span>0</span></div>
+                        <div class="svg-chart-wrapper">
+                            <div class="chart-grid"><span></span><span></span><span></span><span></span><span></span></div>
+                            <svg viewBox="0 0 500 150" class="curved-svg" preserveAspectRatio="none">
+                                <path class="line l-blue" d="M 0 120 C 50 120, 50 80, 100 80 S 150 100, 200 100 S 250 40, 300 40 S 350 70, 400 70 S 450 20, 500 20" />
+                                <path class="line l-purple" d="M 0 140 C 50 140, 50 110, 100 110 S 150 60, 200 60 S 250 90, 300 90 S 350 30, 400 30 S 450 50, 500 50" />
+                                <path class="line l-green" d="M 0 100 C 50 100, 50 130, 100 130 S 150 80, 200 80 S 250 110, 300 110 S 350 50, 400 50 S 450 40, 500 40" />
+                                <path class="line l-orange" d="M 0 80 C 50 80, 50 60, 100 60 S 150 40, 200 40 S 250 20, 300 20 S 350 40, 400 40 S 450 10, 500 10" />
+                            </svg>
+                            <div class="x-axis"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span></div>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="bento-card agent-card">
-                        <div class="c-header"><div class="b-icon b-blue">AI</div><span class="badge b-active">Active</span></div>
-                        <h4>Data Analyzer</h4>
-                        <p class="c-model">gpt-4o</p>
-                        <div class="c-meta">Tasks: 1,240</div>
-                    </div>
-                    <div class="bento-card agent-card">
-                        <div class="c-header"><div class="b-icon b-purple">CW</div><span class="badge b-paused">Paused</span></div>
-                        <h4>Content Writer</h4>
-                        <p class="c-model">claude-3</p>
-                        <div class="c-meta">Tasks: 856</div>
-                    </div>
-                    <div class="bento-card agent-card">
-                        <div class="c-header"><div class="b-icon b-green">CR</div><span class="badge b-active">Active</span></div>
-                        <h4>Code Reviewer</h4>
-                        <p class="c-model">gemini-1.5</p>
-                        <div class="c-meta">Tasks: 3,402</div>
-                    </div>
-                    
-                    <label for="deploy-modal-toggle" class="bento-card create-agent-box">
-                        <div class="plus-icon">+</div>
-                        <h3>Create New Agent</h3>
-                        <p>Deploy a new AI instance</p>
-                    </label>
-
-                    <div class="bento-card logs-table-container">
-                        <h4 class="bento-title">Agent Logs</h4>
+                <div class="bento-card box-logs hover-glow">
+                    <h4 class="bento-title">Agent Logs</h4>
+                    <div class="logs-table-wrapper custom-scrollbar">
                         <table class="data-table">
                             <thead>
                                 <tr><th>Agent</th><th>Tasks</th><th>Status</th><th>Duration</th><th>Actions</th></tr>
@@ -168,82 +151,146 @@
                                     <td>Coordinate mutation tasks</td>
                                     <td><span class="status-badge running">Running</span></td>
                                     <td>20m</td>
-                                    <td><div class="actions"><label for="edit-row-1">✎</label><label for="delete-row-1" class="del">🗑</label></div></td>
+                                    <td><div class="actions"><label for="edit-1" class="action-btn">✎</label><label for="del-1" class="action-btn del">🗑</label></div></td>
                                 </tr>
                                 <tr>
                                     <td><div class="t-cell"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop" class="t-img"><span>GPT-4 Turbo</span></div></td>
                                     <td>Analyze system metrics</td>
                                     <td><span class="status-badge complete">Complete</span></td>
                                     <td>5m</td>
-                                    <td><div class="actions"><label for="edit-row-2">✎</label><label for="delete-row-2" class="del">🗑</label></div></td>
+                                    <td><div class="actions"><label for="edit-2" class="action-btn">✎</label><label for="del-2" class="action-btn del">🗑</label></div></td>
                                 </tr>
                                 <tr>
                                     <td><div class="t-cell"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" class="t-img"><span>Gemini 1.5 Pro</span></div></td>
                                     <td>Code review PR #42</td>
                                     <td><span class="status-badge failed">Failed</span></td>
                                     <td>2m</td>
-                                    <td><div class="actions"><label for="edit-row-3">✎</label><label for="delete-row-3" class="del">🗑</label></div></td>
+                                    <td><div class="actions"><label for="edit-3" class="action-btn">✎</label><label for="del-3" class="action-btn del">🗑</label></div></td>
                                 </tr>
                                 <tr>
                                     <td><div class="t-cell"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop" class="t-img"><span>Llama 3 70B</span></div></td>
-                                    <td>Database heavy migration</td>
+                                    <td>Database migration</td>
                                     <td><span class="status-badge running">Running</span></td>
                                     <td>45m</td>
-                                    <td><div class="actions"><label for="edit-row-4">✎</label><label for="delete-row-4" class="del">🗑</label></div></td>
+                                    <td><div class="actions"><label for="edit-4" class="action-btn">✎</label><label for="del-4" class="action-btn del">🗑</label></div></td>
                                 </tr>
                                 <tr>
                                     <td><div class="t-cell"><img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?w=100&h=100&fit=crop" class="t-img"><span>Claude 3.5 Sonnet</span></div></td>
                                     <td>Draft API documentation</td>
                                     <td><span class="status-badge complete">Complete</span></td>
                                     <td>12m</td>
-                                    <td><div class="actions"><label for="edit-row-5">✎</label><label for="delete-row-5" class="del">🗑</label></div></td>
+                                    <td><div class="actions"><label for="edit-5" class="action-btn">✎</label><label for="del-5" class="action-btn del">🗑</label></div></td>
                                 </tr>
                                 <tr>
                                     <td><div class="t-cell"><img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&h=100&fit=crop" class="t-img"><span>Mistral Large</span></div></td>
                                     <td>Scraping job failure</td>
                                     <td><span class="status-badge failed">Failed</span></td>
                                     <td>1m</td>
-                                    <td><div class="actions"><label for="edit-row-6">✎</label><label for="delete-row-6" class="del">🗑</label></div></td>
+                                    <td><div class="actions"><label for="edit-6" class="action-btn">✎</label><label for="del-6" class="action-btn del">🗑</label></div></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                </div>
 
-                    <div class="bento-card activity-box">
-                        <h4 class="bento-title">Recent Activity</h4>
-                        <ul class="activity-items-list">
-                            <li><span>System update installed</span><small>2m ago</small></li>
-                            <li><span>New agent 'CR-7' deployed</span><small>15m ago</small></li>
-                            <li><span>Task error on 'GPT-4'</span><small>1h ago</small></li>
-                        </ul>
-                    </div>
+                <label for="modal-deploy" class="bento-card box-create hover-glow">
+                    <div class="plus-icon">+</div>
+                    <h3>Create New Agent</h3>
+                    <p>Deploy a new AI instance</p>
+                </label>
 
-                </section>
+                <div class="bento-card box-activity hover-glow">
+                    <h4 class="bento-title">Recent Activity</h4>
+                    <ul class="activity-items-list custom-scrollbar">
+                        <li><div class="act-details"><span class="a-name">System Update</span><span class="a-time">2m ago</span></div></li>
+                        <li><div class="act-details"><span class="a-name">Agent CR-7 Deployed</span><span class="a-time">15m ago</span></div></li>
+                        <li><div class="act-details"><span class="a-name">Error on GPT-4</span><span class="a-time">1h ago</span></div></li>
+                        <li><div class="act-details"><span class="a-name">Database Backed up</span><span class="a-time">3h ago</span></div></li>
+                    </ul>
+                </div>
+
             </main>
         </div>
     </div>
 
     <div class="modals-overlay">
         
-        <div class="modal-window v-agents"><div class="modal-inner small"><h2>Agents Management</h2><label for="modal-agents-grid" class="btn-deploy">Close</label></div></div>
-
-        <div class="modal-window v-settings"><div class="modal-inner">
-            <div class="modal-top"><h2>System Settings</h2><label for="modal-settings-pro" class="close-x">&times;</label></div>
-            <div class="settings-form">
-                <div class="s-group">Theme: <select><option>Ultra Dark (Default)</option><option>High Contrast</option></select></div>
-                <div class="s-group">Refresh: <select><option>Real-time</option><option>5 mins</option></select></div>
+        <div class="modal-window v-agents">
+            <div class="modal-inner large">
+                <div class="modal-top"><h2>AI Agents Overview</h2><label for="nav-home" class="close-x">&times;</label></div>
+                <p>Advanced grid view of all connected agents...</p>
+                <div class="modal-footer"><label for="nav-home" class="btn-deploy">Back to Home</label></div>
             </div>
-            <div class="modal-footer"><label for="modal-settings-pro" class="btn-deploy">Save</label></div>
-        </div></div>
+        </div>
 
-        <div class="modal-window v-create-form"><div class="modal-inner">
-            <div class="modal-top"><h2>Create New Agent</h2><label for="deploy-modal-toggle" class="close-x">&times;</label></div>
-            <p>LAUNCH MODULE: GPT-4o, Web Search enabled.</p>
-            <div class="modal-footer"><label for="deploy-modal-toggle" class="btn-deploy">Deploy Agent</label></div>
-        </div></div>
+        <div class="modal-window v-executions">
+            <div class="modal-inner">
+                <div class="modal-top"><h2>Executions Tracker</h2><label for="nav-home" class="close-x">&times;</label></div>
+                <div class="modal-footer"><label for="nav-home" class="btn-deploy">Back to Home</label></div>
+            </div>
+        </div>
 
-        <div class="modal-window v-edit-form"><div class="modal-inner small"><h2>Edit Agent Task</h2><label for="edit-row-1" class="btn-deploy">Save</label></div></div>
-        <div class="modal-window v-delete-form"><div class="modal-inner small"><h2>Are you sure?</h2><label for="delete-row-1" class="btn-deploy del">Delete</label></div></div>
+        <div class="modal-window v-analytics">
+            <div class="modal-inner">
+                <div class="modal-top"><h2>Data Analytics</h2><label for="nav-home" class="close-x">&times;</label></div>
+                <div class="modal-footer"><label for="nav-home" class="btn-deploy">Back to Home</label></div>
+            </div>
+        </div>
+
+        <div class="modal-window v-settings">
+            <div class="modal-inner">
+                <div class="modal-top"><h2>System Settings</h2><label for="nav-home" class="close-x">&times;</label></div>
+                <div class="settings-form">
+                    <div class="s-group">Theme: <select><option>Ultra Dark</option><option>High Contrast</option></select></div>
+                    <div class="s-group">Data Refresh: <select><option>Real-time</option><option>Every 5 mins</option></select></div>
+                    
+                    <div class="s-group flex-group">
+                        <span>Enable API Access</span>
+                        <label class="custom-toggle">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer"><label for="nav-home" class="btn-deploy">Save Settings</label></div>
+            </div>
+        </div>
+
+        <div class="modal-window v-create-form">
+            <div class="modal-inner">
+                <div class="modal-top"><h2>Create New Agent</h2><label for="modal-deploy" class="close-x">&times;</label></div>
+                <div class="settings-form">
+                    <div class="s-group">Agent Name: <input type="text" placeholder="Enter name..."></div>
+                    <div class="s-group">Model: <select><option>GPT-4o</option><option>Claude 3</option></select></div>
+                    
+                    <div class="s-group flex-group">
+                        <span>Web Search Capability</span>
+                        <label class="custom-toggle">
+                            <input type="checkbox" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer"><label for="modal-deploy" class="btn-deploy">Deploy Agent</label></div>
+            </div>
+        </div>
+
+        <div class="modal-window v-edit-form">
+            <div class="modal-inner small">
+                <div class="modal-top"><h2>Edit Agent Task</h2><label class="close-x" onclick="document.querySelectorAll('input[id^=\'edit-\']').forEach(e=>e.checked=false)">&times;</label></div>
+                <p>Update configuration for this specific task.</p>
+                <div class="modal-footer"><label class="btn-deploy" onclick="document.querySelectorAll('input[id^=\'edit-\']').forEach(e=>e.checked=false)">Save Changes</label></div>
+            </div>
+        </div>
+        
+        <div class="modal-window v-delete-form">
+            <div class="modal-inner small">
+                <div class="modal-top"><h2>Confirm Deletion</h2><label class="close-x" onclick="document.querySelectorAll('input[id^=\'del-\']').forEach(e=>e.checked=false)">&times;</label></div>
+                <p>This action will permanently delete the agent log.</p>
+                <div class="modal-footer"><label class="btn-deploy del" onclick="document.querySelectorAll('input[id^=\'del-\']').forEach(e=>e.checked=false)">Yes, Delete</label></div>
+            </div>
+        </div>
+
     </div>
 
 </body>
