@@ -1,105 +1,94 @@
+// --- פונקציית עזר: כתיבה ללוח המודעות בדף ---
 function writeToPage(text) {
-    // 1. מוצאים את הלוח לפי ה-ID שנתנו לו
+    // אנחנו מבקשים מהדפדפן: "מצא לי את האלמנט עם ה-ID שנקרא results-board"
     const board = document.getElementById('results-board');
     
-    // 2. יוצרים שורה חדשה
+    // אנחנו יוצרים אלמנט פסקה (p) חדש
     const newLine = document.createElement('p');
     
-    // 3. כותבים בתוכה את הטקסט
+    // מכניסים לתוך הפסקה את הטקסט שקיבלנו
     newLine.textContent = text;
     
-    // 4. תולים את השורה על הלוח
+    // "תולים" את הפסקה החדשה בתוך הלוח
     board.appendChild(newLine);
-    
-// Exercise 1: Primitives vs. Reference Types
+}
+
+// --- תרגיל 1: Primitives vs. Reference Types ---
+// --- כאן אנחנו לומדים ש-JavaScript מתייחסת אחרת למספרים ולאובייקטים ---
+// המשימה: ליצור אובייקט עם שם וגיל
 let person1 = {
     name: "Shmuel",
     age: 25
 };
 
-let person2 = person1; // השמה של אובייקט (Reference)
+// ליצור משתנה שני ולהצמיד אותו לראשון
+let person2 = person1; 
+
+// לשנות את הגיל רק ב-person2
 person2.age = 99;
 
-console.log("Exercise 1 - Objects:");
-console.log("person1 age:", person1.age); // 99
-console.log("person2 age:", person2.age); // 99
+//  בוא נראה שגם אצלנו (person1) הגיל השתנה!
+writeToPage("Ex 1 (Object): Person 1 age is now: " + person1.age); 
+writeToPage("Ex 1 (Object): Person 2 age is now: " + person2.age);
 
+
+// --- החלק השני של התרגיל (מספרים) ---
 let score1 = 85;
-let score2 = score1; // העתקה של ערך פרימיטיבי (Value)
-score2 = 100;
+let score2 = score1; // score2 הוא דף חדש - כאן נוצר עותק עצמאי
+score2 = 100;        // שינינו רק את score2 - כי הוא עותק עצמאי
 
-console.log("Exercise 1 - Numbers:");
-console.log("score1:", score1); // 85
-console.log("score2:", score2); // 100
+writeToPage("Ex 1 (Number): Score 1 stays: " + score1);
+writeToPage("Ex 1 (Number): Score 2 changed to: " + score2);
 
-/*
-ANSWER:
-שינוי person2 השפיע על person1 כיוון שאובייקטים הם מסוג Reference. 
-כשמשווים ביניהם, שני המשתנים מצביעים לאותה כתובת בזיכרון (אותה "קופסה").
-לעומת זאת, מספרים הם פרימיטיביים - כשמשווים ביניהם נוצר עותק עצמאי לחלוטין בזיכרון.
-*/
 
-// --------------------------------------------------
-
-// Exercise 2: Typing
-let a = "15";
-let b = 10;
+// --- תרגיל 2: המרת סוגים (Type Conversions) ---
+let a = "15"; 
+let b = 10; 
 let c = "2";
+let result = Number(a) + b; // המרה למספר לקבלת 25 [cite: 3141]
+writeToPage(`Ex 2: Result: ${result}, Type: ${typeof result}`);
+writeToPage(`Ex 2: Multiplication (a * c): ${a * c}`); // JavaScript ממירה אוטומטית בכפל 
 
-// המרת המחרוזת למספר בעזרת Number() או האופרטור +
-let result = Number(a) + b; 
 
-console.log("\nExercise 2:");
-console.log("Addition Result:", result); // 25
-console.log("Type of result:", typeof result); // number
-console.log("Multiplication (a * c):", a * c); // 30
 
-/*
-ANSWER:
-בפעולת כפל, JavaScript מבצעת המרה אוטומטית (Coercion). 
-מכיוון שאין פעולת כפל בין מחרוזות, השפה "מניחה" שהתכוונו למספרים וממירה אותם זמנית לצורך החישוב. 
-בחיבור זה לא קרה כי האופרטור + משמש גם לחיבור טקסט.
-*/
+// --- תרגיל 3: Block Scope ---
 
-// --------------------------------------------------
-
-// Exercise 3: Block Scope
+// 1. משתנה גלובלי (בגינה)
 let secretMessage = "Hello";
 
 if (true) {
-    let secretMessage = "Goodbye"; // משתנה חדש שקיים רק בתוך ה-if
+    // 2. יצירת משתנה עם אותו שם אבל בתוך הבית (Block Scope)
+    // ה-let הזה "מסתיר" את השלט שבחוץ רק למי שנמצא בפנים
+    let secretMessage = "Goodbye";
+    
+    // 3. משתנה var - הוא לא מכבד את הקירות של ה-if
     var hackerMessage = "I am inside!";
-    console.log("\nExercise 3 - Inside block:", secretMessage);
+    
+    writeToPage("Ex 3: Inside the block: " + secretMessage); // ידפיס Goodbye
 }
 
-console.log("Outside block 1:", secretMessage); // Hello
-console.log("Outside block 2:", hackerMessage); // I am inside!
+// 4. כאן אנחנו בחוץ. המחשב חוזר להסתכל על השלט של הגינה
+writeToPage("Ex 3: Outside 1: " + secretMessage); // ידפיס Hello
 
-/*
-ANSWER:
-1. כששינינו את var ל-let במשתנה hackerMessage, קיבלנו שגיאה (ReferenceError) 
-מחוץ לבלוק, כי let מוגבל רק לסוגריים המסולסלים שבהם הוא נוצר (Block Scope), בעוד var "בורח" החוצה.
-2. המשתנה secretMessage נשאר "Hello" בחוץ כי בפנים יצרנו משתנה חדש עם אותו שם (Shadowing).
-הוא לא דרס את המשתנה החיצוני, אלא רק הסתיר אותו בתוך הבלוק.
-*/
+// 5. ה-var הצליח לצאת, אז המחשב מכיר אותו גם פה
+writeToPage("Ex 3: Outside 2: " + hackerMessage); // ידפיס I am inside!
 
-// --------------------------------------------------
 
-// Exercise 4: Truthy and Falsy Values
+// --- תרגיל 4: אמת ושקר ---
+
 const mixedValues = [0, "hello", "", null, 42, undefined, NaN, "false", [], {}];
 
-console.log("\nExercise 4:");
+// אנחנו עוברים על כל איבר ברשימה
 for (let i = 0; i < mixedValues.length; i++) {
-    if (mixedValues[i]) {
-        console.log(`[${mixedValues[i]}] is Truthy`);
+    let current = mixedValues[i];
+
+    // כאן קורה הקסם: ה-if בודק אם הערך הוא Truthy או Falsy
+    if (current) {
+        // אם נכנסנו לכאן - זה Truthy
+        writeToPage("[" + current + "] is Truthy");
     } else {
-        console.log(`[${mixedValues[i]}] is Falsy`);
+        // אם הגענו לכאן - זה Falsy
+        writeToPage("[" + current + "] is Falsy");
     }
 }
 
-/*
-ANSWER:
-1. המחרוזת "false" היא Truthy! ב-JS כל מחרוזת שאינה ריקה היא אמת, גם אם כתוב בה המילה false.
-2. מערך ריק [] הוא Truthy. ב-JS אובייקטים ומערכים הם תמיד אמת, גם אם הם ריקים.
-הערכים שהם Falsy הם: 0, "", null, undefined, NaN וכמובן false.
-*/
