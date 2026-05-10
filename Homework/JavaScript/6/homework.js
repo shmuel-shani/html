@@ -50,6 +50,31 @@ writeToPage(`Ex 2: Result: ${result}, Type: ${typeof result}`);
 writeToPage(`Ex 2: Multiplication (a * c): ${a * c}`); // JavaScript ממירה אוטומטית בכפל 
 
 
+// --- תרגיל 4: אמת ושקר ---
+
+const mixedValues = [0, "hello", "", null, 42, undefined, NaN, "false", [], {}];
+
+// אנחנו עוברים על כל איבר ברשימה
+for (let i = 0; i < mixedValues.length; i++) {
+    let current = mixedValues[i];
+
+    // כאן קורה הקסם: ה-if בודק אם הערך הוא Truthy או Falsy
+    if (current) {
+        // אם נכנסנו לכאן - זה Truthy
+        writeToPage("Ex 4:[" + current + "] is Truthy");
+    } else {
+        // אם הגענו לכאן - זה Falsy
+        writeToPage("Ex 4:[" + current + "] is Falsy");
+    }
+}
+writeToPage("Ex 4: כפי שניתן לראות -  ");
+writeToPage("המחרוזת falsy היא Truthy");
+writeToPage(" כי בג'אווה סקריפט כל מחרוזת שאינה ריקה היא אמת, גם אם כתוב בה המילה false.");
+
+writeToPage("Ex 4: כמו כן, ניתן לראות - שגם מערך ריק [ ] הוא Truthy");
+writeToPage("המחרוזת falsy היא Truthy");
+writeToPage(" כי בג'אווה סקריפט אובייקטים ומערכים הם תמיד אמת, גם אם הם ריקים.");
+
 
 // --- תרגיל 3: Block Scope ---
 
@@ -64,31 +89,35 @@ if (true) {
     // 3. משתנה var - הוא לא מכבד את הקירות של ה-if
     var hackerMessage = "I am inside!";
     
-    writeToPage("Ex 3: Inside the block: " + secretMessage); // ידפיס Goodbye
+    writeToPage("Ex 3 before: Inside the block: " + secretMessage); // ידפיס Goodbye
 }
 
 // 4. כאן אנחנו בחוץ. המחשב חוזר להסתכל על השלט של הגינה
-writeToPage("Ex 3: Outside 1: " + secretMessage); // ידפיס Hello
+writeToPage("Ex 3 before: Outside 1: " + secretMessage); // ידפיס Hello
 
 // 5. ה-var הצליח לצאת, אז המחשב מכיר אותו גם פה
-writeToPage("Ex 3: Outside 2: " + hackerMessage); // ידפיס I am inside!
+writeToPage("Ex 3 before: Outside 2: " + hackerMessage); // ידפיס I am inside!
 
 
-// --- תרגיל 4: אמת ושקר ---
+// המשימה - 
+// עכשיו נשנה את var לlet
+// 1. משתנה גלובלי (בגינה)
+let secretMessage1 = "Hello";
 
-const mixedValues = [0, "hello", "", null, 42, undefined, NaN, "false", [], {}];
-
-// אנחנו עוברים על כל איבר ברשימה
-for (let i = 0; i < mixedValues.length; i++) {
-    let current = mixedValues[i];
-
-    // כאן קורה הקסם: ה-if בודק אם הערך הוא Truthy או Falsy
-    if (current) {
-        // אם נכנסנו לכאן - זה Truthy
-        writeToPage("[" + current + "] is Truthy");
-    } else {
-        // אם הגענו לכאן - זה Falsy
-        writeToPage("[" + current + "] is Falsy");
-    }
+if (true) {
+    // 2. יצירת משתנה עם אותו שם אבל בתוך הבית (Block Scope)
+    // ה-let הזה "מסתיר" את השלט שבחוץ רק למי שנמצא בפנים
+    let secretMessage1 = "Goodbye";
+    
+    // 3. ה-let הזה "מסתיר" את השלט שבחוץ רק למי שנמצא בפנים
+    let hackerMessage1 = "I am inside!";
+    
+    writeToPage("Ex 3 after: Inside the block: " + secretMessage); // ידפיס Goodbye
 }
+
+// 4. כאן אנחנו בחוץ. המחשב חוזר להסתכל על השלט של הגינה
+writeToPage("Ex 3 after: Outside 1: " + secretMessage1); // ידפיס Hello
+
+// 5. ה-var הצליח לצאת, אז המחשב מכיר אותו גם פה
+writeToPage("Ex 3 after: Outside 2: " + hackerMessage1); // ידפיס I am inside!
 
